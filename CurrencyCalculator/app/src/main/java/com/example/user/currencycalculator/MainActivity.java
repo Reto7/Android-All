@@ -1,6 +1,5 @@
 package com.example.user.currencycalculator;
 
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +11,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.user.currencycalculator.Currency.USD;
-
 public class MainActivity extends AppCompatActivity {
 
-    private String prog = "____CurrencyCalculator";
+    public static final String PROG = "____CurrencyCalculator";
     /*
         Am Schluss eine Übung begonnen (Hausaufgabe)
         Neues Projekt: CurrencyCalculator
@@ -56,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String betragFeld = (editBetrag.getText().toString());
-                Log.w(prog, "Betrag (Feld): " + betragFeld);
+                Log.w(PROG, "Betrag (Feld): " + betragFeld);
                 if (betragFeld.length()>0) {
                     double betrag = Double.parseDouble(betragFeld);
-                    Log.w(prog, "Betrag: " + betrag);
+                    Log.w(PROG, "Betrag: " + betrag);
                     String zielWaehrung = spinnerZielwaehrung.getSelectedItem().toString();
-                    Log.w(prog, "Ziehlwaehrung: " + zielWaehrung);
+                    Log.w(PROG, "Ziehlwaehrung: " + zielWaehrung);
                     // Lookup Enum ab String z.B. "USD": Currency.valueOf(zielWaehrung);
                     String ausgabe = CurrencyConverterBusinessComponent.calculateChfToTargetCurrency(zielWaehrung, betrag);
                     textAusgabe.setText(ausgabe);

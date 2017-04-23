@@ -96,13 +96,13 @@
         android:id="@+id/label_ausgabe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/button_compute"
         android:layout_marginLeft="60px"
         android:layout_marginRight="60px"
-        android:textStyle="bold"
-        android:layout_alignTop="@+id/button_compute"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/button_compute" />
+        android:layout_toEndOf="@+id/button_compute"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <!--
     todo Frage: wann ID mit oder ohne @  ?
