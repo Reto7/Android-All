@@ -38,8 +38,30 @@
         />
 
     <TextView
+        android:id="@+id/label_betrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/betrag"
+        android:layout_below="@+id/label_ueberschrift"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <EditText
+        android:id="@+id/edit_betrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_betrag"
+        android:inputType="numberDecimal"
+        android:layout_alignStart="@+id/label_ausgabe"
+        android:layout_alignEnd="@+id/label_ausgabe" />
+
+
+    <TextView
         android:id="@+id/label_zielwaehrung"
-        android:layout_below="@id/label_ueberschrift"
+        android:layout_below="@id/label_betrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/zielwaehrung"
@@ -57,30 +79,9 @@
         android:spinnerMode="dropdown"
         android:layout_alignStart="@+id/edit_betrag"
         android:layout_alignEnd="@+id/edit_betrag" />
-        <!--
-        android:background="@android:drawable/btn_dropdown"
-        -->
-
-    <TextView
-        android:id="@+id/label_betrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/betrag"
-        android:layout_below="@+id/label_zielwaehrung"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        />
-
-    <EditText
-        android:id="@+id/edit_betrag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/label_betrag"
-        android:inputType="numberDecimal"
-        android:layout_alignStart="@+id/label_ausgabe"
-        android:layout_alignEnd="@+id/label_ausgabe" />
+    <!--
+    android:background="@android:drawable/btn_dropdown"
+    -->
 
     <Button
         android:id="@+id/button_compute"
@@ -88,8 +89,8 @@
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/label_betrag"
-        android:layout_alignStart="@+id/label_betrag" />
+        android:layout_below="@+id/label_zielwaehrung"
+        android:layout_alignStart="@+id/label_zielwaehrung" />
 
     <TextView
         android:id="@+id/label_ausgabe"
