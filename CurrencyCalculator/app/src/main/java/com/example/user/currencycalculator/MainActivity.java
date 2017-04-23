@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.user.currencycalculator.Currency.USD;
 
@@ -54,13 +55,19 @@ public class MainActivity extends AppCompatActivity {
         buttonCompute.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                double betrag = Double.parseDouble((editBetrag.getText().toString()));
-                Log.w(prog,"Betrag: " +betrag);
-                String zielWaehrung = spinnerZielwaehrung.getSelectedItem().toString();
-                Log.w(prog,"Ziehlwaehrung: " +zielWaehrung);
-                // Lookup Enum ab String z.B. "USD": Currency.valueOf(zielWaehrung);
-                String ausgabe = CurrencyConverterBusinessComponent.calculateChfToTargetCurrency(zielWaehrung,betrag);
-                textAusgabe.setText(ausgabe);
+                String betragFeld = (editBetrag.getText().toString());
+                Log.w(prog, "Betrag (Feld): " + betragFeld);
+                if (betragFeld.length()>0) {
+                    double betrag = Double.parseDouble(betragFeld);
+                    Log.w(prog, "Betrag: " + betrag);
+                    String zielWaehrung = spinnerZielwaehrung.getSelectedItem().toString();
+                    Log.w(prog, "Ziehlwaehrung: " + zielWaehrung);
+                    // Lookup Enum ab String z.B. "USD": Currency.valueOf(zielWaehrung);
+                    String ausgabe = CurrencyConverterBusinessComponent.calculateChfToTargetCurrency(zielWaehrung, betrag);
+                    textAusgabe.setText(ausgabe);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Bitte zuerst einen Betrag in CHF eingeben", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

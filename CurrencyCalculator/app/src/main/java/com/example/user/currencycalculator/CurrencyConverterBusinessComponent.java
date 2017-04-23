@@ -1,5 +1,7 @@
 package com.example.user.currencycalculator;
 
+import java.math.BigDecimal;
+
 /**
  * Created by user on 23.04.2017.
  */
@@ -21,7 +23,9 @@ public class CurrencyConverterBusinessComponent {
     }
 
     public static String calculateChfToTargetCurrency(Currency targetCurrency, Double betrag) {
-        return betrag +" CHF sind umgerechnet "+fxChfToTarget(targetCurrency,betrag) +" " +targetCurrency;
+        Double resultat = fxChfToTarget(targetCurrency,betrag);
+        return betrag +" CHF sind umgerechnet "+String.format("%.2f", resultat) +" " +targetCurrency;
+
     }
 
     public static String calculateChfToTargetCurrency(String targetCurrency, Double betrag) {
