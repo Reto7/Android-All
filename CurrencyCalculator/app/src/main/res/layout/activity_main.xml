@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,5 +15,87 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+-->
 
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.currencycalculator.MainActivity"
+    >
+
+
+    <TextView
+        android:id="@+id/label_zielwaehrung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zielwährung"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <EditText
+        android:id="@+id/edit_zielwaehrung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/label_zielwaehrung"
+        android:layout_alignBottom="@+id/label_zielwaehrung"
+        android:inputType="number"
+        />
+
+    <TextView
+        android:id="@+id/label_betrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Betrag"
+        android:layout_below="@+id/label_zielwaehrung"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <EditText
+        android:id="@+id/edit_betrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/label_betrag"
+        android:layout_alignBottom="@+id/label_betrag"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/button_compute"
+        android:text="Berechnen"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_betrag"
+        />
+
+    <TextView
+        android:id="@+id/label_ausgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ausgabe"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_alignBottom="@+id/button_compute"
+        android:layout_alignTop="@+id/button_compute"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/label_zielwaehrung" />
+
+    <!--
+    todo Frage: wann ID mit oder ohne @  ?
+    -->
+
+
+</RelativeLayout>
+
+<!--
 </android.support.constraint.ConstraintLayout>
+-->
