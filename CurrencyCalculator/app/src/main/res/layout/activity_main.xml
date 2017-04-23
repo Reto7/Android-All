@@ -26,34 +26,48 @@
     tools:context="com.example.user.currencycalculator.MainActivity"
     >
 
-
     <TextView
-        android:id="@+id/label_zielwaehrung"
+        android:id="@+id/label_ueberschrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zielwährung"
-        android:layout_marginTop="70dp"
+        android:text="Währungsumrechnung von CHF aus in Zielwährung"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:textSize="16sp"
         android:textStyle="normal"
         />
 
-    <EditText
-        android:id="@+id/edit_zielwaehrung"
+    <TextView
+        android:id="@+id/label_zielwaehrung"
+        android:layout_below="@id/label_ueberschrift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zielwaehrung"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_zielwaehrung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/label_zielwaehrung"
         android:layout_alignBottom="@+id/label_zielwaehrung"
-        android:inputType="number"
-        />
+        android:spinnerMode="dropdown"
+        android:layout_alignStart="@+id/edit_betrag"
+        android:layout_alignEnd="@+id/edit_betrag" />
+        <!--
+        android:background="@android:drawable/btn_dropdown"
+        -->
 
     <TextView
         android:id="@+id/label_betrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Betrag"
+        android:text="@string/betrag"
         android:layout_below="@+id/label_zielwaehrung"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
         android:textSize="16sp"
         android:textStyle="normal"
@@ -63,34 +77,31 @@
         android:id="@+id/edit_betrag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/label_betrag"
         android:layout_alignBottom="@+id/label_betrag"
-        android:inputType="number"
-        />
+        android:inputType="numberDecimal"
+        android:layout_alignStart="@+id/label_ausgabe"
+        android:layout_alignEnd="@+id/label_ausgabe" />
 
     <Button
         android:id="@+id/button_compute"
         android:text="Berechnen"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/label_betrag"
-        />
+        android:layout_alignStart="@+id/label_betrag" />
 
     <TextView
         android:id="@+id/label_ausgabe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ausgabe"
         android:textSize="16sp"
         android:layout_marginLeft="60px"
         android:layout_marginRight="60px"
-        android:layout_alignBottom="@+id/button_compute"
+        android:textStyle="bold"
         android:layout_alignTop="@+id/button_compute"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/label_zielwaehrung"
-        android:textStyle="bold"
-        />
+        android:layout_toEndOf="@+id/button_compute" />
 
     <!--
     todo Frage: wann ID mit oder ohne @  ?
