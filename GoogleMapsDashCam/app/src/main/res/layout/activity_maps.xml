@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/base">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/cam"
-        android:name="com.test.reto.cam"
+    <FrameLayout  android:id ="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -23,6 +19,38 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.test.reto.googlemapsdashcam.MapsActivity" />
+        tools:context="com.test.reto.googlemapsdashcam.MapsActivity"
+        />
 
-</RelativeLayout>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+        <LinearLayout android:id="@+id/linearLayout1"
+            android:gravity="bottom"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button android:text="Start Cam"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1" ></Button>
+            <Button android:text="Stop Cam"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"  ></Button>
+            <!--
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+                -->
+        </LinearLayout>
+
+
+    </FrameLayout>
+</LinearLayout>
