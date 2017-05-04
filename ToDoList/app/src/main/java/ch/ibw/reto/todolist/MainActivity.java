@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,34 +30,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dieListe = new ArrayList<String>();
-        dieListe.add("Test");
+        dieListe.add("Test 1");
+        dieListe.add("Test 2");
 
         // get the values from input field
         editEintrag = (EditText) findViewById(R.id.edit_eintrag);
         listViewToDoListe = (ListView) findViewById(R.id.liste);
 
-        // Liste befuellen und anzeigen
-        Log.w(PROG, "Anzahl: " + dieListe.size());
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
+        // der ListView das ListenObjekt generell zuteilen
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, dieListe);
         listViewToDoListe.setAdapter(adapter);
 
-        // get the button
+
+        // fuer DELETE
+        listViewToDoListe.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.w(PROG, "View: " +view.toString());
+                Log.w(PROG, "Positioin: " +position);
+                Log.w(PROG, "Id: " +id);
+                dieListe.remove(position);
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
+        // get the button (fuer ADD)
         Button buttonCompute = (Button) findViewById(R.id.button_compute);
         buttonCompute.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
                 if (editEintrag.length()>0) {
                     Log.w(PROG, "Eintrag: " + editEintrag.getText().toString());
                     dieListe.add(editEintrag.getText().toString());
-
-                    // Liste befuellen und anzeigen
-                    Log.w(PROG, "Anzahl: " + dieListe.size());
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
-                            android.R.layout.simple_list_item_1, dieListe);
-                    listViewToDoListe.setAdapter(adapter);
-
+                    // refresh!
+                    adapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(getApplicationContext(), "Bitte zuerst Text eingeben", Toast.LENGTH_LONG).show();
                 }
