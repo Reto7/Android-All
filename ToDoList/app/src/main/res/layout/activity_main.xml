@@ -31,7 +31,7 @@
         android:id="@+id/label_ueberschrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Liste"
+        android:text="ToDo Eintrag hinzufügen"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:textSize="16sp"
@@ -42,7 +42,7 @@
         android:id="@+id/label_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To Do"
+        android:text=""
         android:layout_below="@+id/label_ueberschrift"
         android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
@@ -50,14 +50,31 @@
         android:textStyle="normal"
         />
 
+    <EditText
+        android:id="@+id/edit_eintrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/label_ueberschrift"
+        />
+
+
     <Button
         android:id="@+id/button_compute"
         android:text="Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/label_add"
-        android:layout_alignBottom="@+id/label_add"
+        android:layout_alignBaseline="@+id/edit_eintrag"
+        android:layout_alignBottom="@+id/edit_eintrag"
         android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/liste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100sp"
+        >
+    </ListView>
 
 </RelativeLayout>
 
