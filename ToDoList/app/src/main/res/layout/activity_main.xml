@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.todolist.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.todolist.MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/label_ueberschrift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/label_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Do"
+        android:layout_below="@+id/label_ueberschrift"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <Button
+        android:id="@+id/button_compute"
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/label_add"
+        android:layout_alignBottom="@+id/label_add"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
+
