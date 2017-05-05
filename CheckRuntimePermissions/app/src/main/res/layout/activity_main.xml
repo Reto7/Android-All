@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.checkruntimepermissions.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.checkruntimepermissions.MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/label_ueberschrift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Permission prüfen:"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+
+    <EditText
+        android:id="@+id/edit_feld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginStart="20dp"
+        android:text="Camera"
+        android:layout_below="@+id/label_ueberschrift"
+        />
+
+
+    <Button
+        android:id="@+id/button_compute"
+        android:text="Check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_alignBaseline="@+id/edit_feld"
+        android:layout_alignBottom="@+id/edit_feld"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:id="@+id/label_ausgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_below="@id/edit_feld"
+        />
+</RelativeLayout>
+
