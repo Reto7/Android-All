@@ -31,7 +31,7 @@
         android:id="@+id/label_ueberschrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Permission prüfen:"
+        android:text="Permission prüfen, z.B. CAMERA, CALL_PHONE,  READ_PHONE_NUMBER, BLUETOOTH"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:textSize="16sp"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:layout_marginStart="20dp"
-        android:text="Camera"
+
         android:layout_below="@+id/label_ueberschrift"
         />
 

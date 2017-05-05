@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         resulat = "DENIED";
                     }
-                    textAusgabe.setText("WRITE_CALENDAR:" + resulat);
+                    textAusgabe.setText(diePermission +":" + resulat);
                 } else {
                     Toast.makeText(getApplicationContext(), "Bitte zuerst eine zu prüfende Permission eingeben", Toast.LENGTH_LONG).show();
                 }
