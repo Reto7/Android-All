@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         resulat = "GRANTED";
                     } else {
                         resulat = "DENIED";
+                        // TODO hier noch Request-Permission einfuegen!
                     }
                     textAusgabe.setText(diePermission +":" + resulat);
                 } else {
