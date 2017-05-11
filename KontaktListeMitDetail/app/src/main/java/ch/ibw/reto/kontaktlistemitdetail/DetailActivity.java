@@ -11,6 +11,8 @@ public class DetailActivity extends AppCompatActivity {
     public static final String PROG = "____Kontaktliste:Detail";
 
     private TextView anzeigefeld_kontaktname;
+    private TextView anzeigefeld_kontakttel;
+    private TextView anzeigefeld_kontaktweb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +24,15 @@ public class DetailActivity extends AppCompatActivity {
 
         Log.i(PROG, "Kontakt: " +kontakt);
 
-        // get the fields
+        // set the fields
         anzeigefeld_kontaktname = (TextView) findViewById(R.id.anzeigefeld_kontaktname);
         anzeigefeld_kontaktname.setText(kontakt.getName());
+        //
+        anzeigefeld_kontakttel = (TextView) findViewById(R.id.anzeigefeld_kontakttel);
+        anzeigefeld_kontakttel.setText(kontakt.getName());
+        //
+        anzeigefeld_kontaktweb = (TextView) findViewById(R.id.anzeigefeld_kontaktweb);
+        anzeigefeld_kontaktweb.setText(kontakt.getName());
 
 
     }
