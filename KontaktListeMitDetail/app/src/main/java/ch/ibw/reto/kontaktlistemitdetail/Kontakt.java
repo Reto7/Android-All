@@ -18,6 +18,13 @@ public class Kontakt implements Serializable {
         this.webseite = webseite;
     }
 
+    //speziell!
+    public String toString() {
+        return this.name;
+    }
+
+
+
     public String getName() {
         return name;
     }

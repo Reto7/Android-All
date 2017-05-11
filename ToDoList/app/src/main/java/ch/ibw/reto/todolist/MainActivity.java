@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         listViewToDoListe.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i(PROG, "Positioin: " +position);
+                Log.i(PROG, "Position: " +position);
                 Log.i(PROG, "Id: " +id);
                 dieListe.remove(position);
                 adapter.notifyDataSetChanged();
