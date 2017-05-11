@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String PROG = "____Kontaktliste";
+    public static final String PROG = "____Kontaktliste:Main";
 
     private EditText editEintrag;
     private ListView listViewToDoListe;
@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra("KONTAKT", dieListe.get(position) );
                 startActivity(intent);
-
                 return true;
             }
         });

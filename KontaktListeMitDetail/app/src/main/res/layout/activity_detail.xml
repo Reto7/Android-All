@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,3 +8,96 @@
     tools:context="ch.ibw.reto.kontaktlistemitdetail.DetailActivity">
 
 </android.support.constraint.ConstraintLayout>
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.kontaktlistemitdetail.DetailActivity"
+    >
+
+
+    <TextView
+    android:id="@+id/label_ueberschrift"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Kontakt Detailanzeige"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:textSize="16sp"
+    android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/label_kontaktname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:layout_below="@+id/label_ueberschrift"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/anzeigefeld_kontaktname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_ueberschrift"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_toRightOf="@+id/label_kontaktname"
+        />
+
+    <TextView
+        android:id="@+id/label_kontakttel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefon:"
+        android:layout_below="@+id/anzeigefeld_kontaktname"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/anzeigefeld_kontakttel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/label_kontakttel"
+        android:layout_toRightOf="@+id/label_kontakttel"
+        />
+
+    <TextView
+        android:id="@+id/label_kontaktweb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefon:"
+        android:layout_below="@+id/anzeigefeld_kontakttel"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/anzeigefeld_kontaktweb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_alignTop="@+id/label_kontaktweb"
+        android:layout_toRightOf="@+id/label_kontaktweb"
+        />
+
+</RelativeLayout>
