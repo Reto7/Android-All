@@ -23,12 +23,11 @@
         android:id="@+id/label_ueberschrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kontakt Detailanzeige"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Kontakt Detailanzeige"
         android:textSize="16sp"
-        android:textStyle="normal"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/label_kontaktname"

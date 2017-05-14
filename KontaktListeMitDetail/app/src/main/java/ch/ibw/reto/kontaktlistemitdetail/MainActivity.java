@@ -29,15 +29,30 @@ public class MainActivity extends AppCompatActivity {
         dieListe = new ArrayList<Kontakt>();
         dieListe.add(new Kontakt("Hans Muster", "+41786643120","http://www.ibw.ch"));
         dieListe.add(new Kontakt("Susi Muster", "+41786643120","http://www.20min.ch"));
+        dieListe.add(new Kontakt("Alice im Wunderland", "+41786643120","http://www.blick.ch"));
+        dieListe.add(new Kontakt("Jack Sparrow", "+41786643120","http://www.nasa.gov"));
 
 
         listViewToDoListe = (ListView) findViewById(R.id.liste);
 
         // der ListView das ListenObjekt generell zuteilen
         final ArrayAdapter<Kontakt> adapter = new ArrayAdapter<Kontakt>(MainActivity.this,
-                android.R.layout.simple_list_item_1, dieListe);
+                R.layout.reto_listitem, dieListe);   //R.layout.reto_listitem  oder  android.R.layout.simple_list_item_1
         listViewToDoListe.setAdapter(adapter);
 
+        // SHORT KLICK
+        listViewToDoListe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(PROG, "Position: " +position);
+                Log.i(PROG, "Id: " +id);
+                Log.i(PROG, "Kontakt: " +dieListe.get(position));
+                // CALL DETAIL ACTIVITY
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                intent.putExtra("KONTAKT", dieListe.get(position) );
+                startActivity(intent);
+            }
+        });
 
         // LONG KLICK
         listViewToDoListe.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
