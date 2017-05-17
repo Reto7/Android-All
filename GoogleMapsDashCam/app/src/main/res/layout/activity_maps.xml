@@ -38,15 +38,22 @@
                 android:id="@+id/ButtonStartCam"
                 android:text="Start Cam"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="1" ></Button>
+                android:layout_width="wrap_content"></Button>
 
             <Button
                 android:id="@+id/ButtonStopCam"
                 android:text="Stop Cam"
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"></Button>
+
+            <ImageView
+                android:id="@+id/ImageView"
+                android:layout_height="46dp"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"  ></Button>
+                android:layout_weight="1"
+                android:background="@color/colorImage"
+                />
+
             <!--
             <VideoView
                 android:id="@+id/videoView"
