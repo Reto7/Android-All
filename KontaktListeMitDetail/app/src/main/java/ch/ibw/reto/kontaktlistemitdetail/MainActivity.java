@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra("KONTAKT", dieListe.get(position) );
                 startActivity(intent);
+                /*
+                Rueckgabewerte der anderen Activity bekommen:
+                    startActivotyForResult()
+                    onActivityResult()
+                 */
+
             }
         });
 
