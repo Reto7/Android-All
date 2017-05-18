@@ -34,14 +34,24 @@ public class NamensErfassungActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.w("X", "Name erfasst: " + editTextName.getText().toString());
 
+
+
                 // abspeichern Name
                 if (editTextName.getText().toString() != null) {
+
+                    // neu mit rueckgabe
+                    Intent intent = new Intent();
+                    intent.putExtra("nameR", editTextName.getText().toString());
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+/*
                     SharedPreferences prefs = getSharedPreferences("Special Prefs", Activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("name", editTextName.getText().toString());
                     editor.commit();
 
                     finish();
+                    */
                 }
 
 
