@@ -39,37 +39,25 @@ public class MainActivity extends AppCompatActivity {
         //test  // TODO, hiermit gehts gleich zur namenserfassung
         //name = null;
 
-
-
         if (name != null) {
             this.person.setName(name);
         }
 
         Log.w("X", "Person: " + this.person.getName());
         if (this.person.getName() != null) {
-
             // Falls User bekannt (abgespeichert, dann nur Spruch)
-            Log.w("X", "Person ist bekannt ");
-            textViewSpruch.setText("Heute ist der schönste Donnerstag des Jahres");
-            textViewWelcome.setText("Hallo "+this.person.getName());
-
+            ausgabe();
         }
         else {
             // Falls User unbekannt, die NamensErfassung starten, dann den Namen abspeichern
             Log.w("X", "Person ist unbekannt ");
-
             // CALL DETAIL ACTIVITY
             Intent intent = new Intent(getApplicationContext(), NamensErfassungActivity.class);
             //intent.putExtra("KONTAKT", dieListe.get(position) );
             //startActivity(intent);
             startActivityForResult(intent, PICK_CONTACT_REQUEST);
-
-            Log.w("X", "------------details---called-----------");
-
+            Log.w("X", "------------details---called-----------");  // ACHTUNG, das hier laeuft weiter !!!
         }
-        ausgabe();
-
-
     }
 
 
@@ -79,9 +67,6 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PICK_CONTACT_REQUEST) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
-                // The user picked a contact.
-                // The Intent's data Uri identifies which contact was selected.
-
                 Bundle extras = data.getExtras();
                 Log.w("X", "Rueckgabewert: " + extras.getString("nameR"));
 
