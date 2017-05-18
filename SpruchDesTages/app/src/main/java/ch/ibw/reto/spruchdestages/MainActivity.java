@@ -8,7 +8,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ch.ibw.reto.spruchdestages.app.ApplicationController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,9 +94,49 @@ public class MainActivity extends AppCompatActivity {
 
     private void ausgabe(){
         Log.w("X", "------------ausgabe-------------");
-        textViewSpruch.setText("Heute ist der schönste Donnerstag des Jahres");
         textViewWelcome.setText("Hallo "+this.person.getName());
+        //textViewSpruch.setText("Heute ist der schönste Donnerstag des Jahres");
+        getDailyQuoteFromInternet();
 
+    }
+
+    private void getDailyQuoteFromInternet() {
+        textViewSpruch.setText("Loading ...");
+
+        // der constructor erwartet viele Parameter
+        JsonObjectRequest request = new JsonObjectRequest(
+                com.android.volley.Request.Method.GET,
+                "http://quotes.rest/qod.json",
+                (String) null,
+                new Response.Listener<JSONObject>() {  /* listener verarbeitet response */   /* anonyme klasse */
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //Log.d("Response: " +response.toString());
+                        String fortune = "leer";
+                        //
+                        try{
+                            JSONObject contents = response.getJSONObject("contents");
+                            JSONArray quotes = contents.getJSONArray("quotes");
+                            fortune = quotes.getJSONObject(0).getString("quote");
+                            // hier ausgeben, etwas unschoen !! // TODO
+                            textViewSpruch.setText(fortune);  // TODO in raw file abspeichern
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {   /* anonyme klasse */
+                        // TODO hier toast
+                        error.printStackTrace();
+                    }
+
+                }
+        );
+
+        Log.w("X", "Request: " + request.toString());
+        ApplicationController.getInstance().addToRequestQueue(request);
     }
 
 }
