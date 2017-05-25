@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import java.net.URISyntaxException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class XMainActivityX extends AppCompatActivity {
 
 
     private static final String PROG = "*********Sockets";
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i(PROG,"los gehts ...");
+        Log.i(PROG,"ready...");
 
         // listening on socket events
         //mSocket.on("chat", onNewMessage);
@@ -51,11 +51,35 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        mSocket.emit("add_user", obj);
 
-        mSocket.emit("test","hallo");
         mSocket.emit("add_user","hallo");
         Log.i(PROG, "gesendet");
     }
 
 
 
+    //With this we listen on the new message event to receive messages from other users.
+    private Emitter.Listener onNewMessage = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    JSONObject data = (JSONObject) args[0];
+                    Log.i(PROG, "******************" +data.toString());
+                    String username;
+                    String message;
+                    try {
+                        username = data.getString("username");
+                        message = data.getString("message");
+                    } catch (JSONException e) {
+                        return;
+                    }
+
+                    // add the message to view
+                    //addMessage(username, message);
+                    Log.i(PROG, "******************" +message);
+                }
+            });
+        }
+    };
 }
