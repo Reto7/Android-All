@@ -13,7 +13,9 @@ import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
-
+/**
+ * https://socket.io/blog/native-socket-io-and-android/
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -43,19 +45,57 @@ public class MainActivity extends AppCompatActivity {
 
         // username senden
 
-//        JSONObject obj = new JSONObject();
-//        try {
-//            obj.put("username", "Jack Daniels");
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        mSocket.emit("add_user", obj);
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("username", "Jack Daniels");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        mSocket.emit("add_user", obj);
 
-        mSocket.emit("test","hallo");
-        mSocket.emit("add_user","hallo");
         Log.i(PROG, "gesendet");
-    }
 
+
+
+
+//        send_action(player, field) {
+//            socket.emit('player_action', {'player': player, 'field': field})
+//        }
+
+        mSocket.on("start_game", onStartGame);
+
+
+
+
+    } // end on-create lifecycle
+
+
+    //With this we listen on the new message event to receive messages from other users.
+    private Emitter.Listener onStartGame = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.i(PROG, "****************** game started");
+//                    JSONObject data = (JSONObject) args[0];
+//                    Log.i(PROG, "******************" +data.toString());
+//                    String username;
+//                    String message;
+//                    try {
+//                        username = data.getString("username");
+//                        message = data.getString("message");
+//                    } catch (JSONException e) {
+//                        return;
+//                    }
+
+                    // add the message to view
+                    //addMessage(username, message);
+                    //Log.i(PROG, "******************" +message);
+                }
+            });
+        }
+    };
 
 
 }
