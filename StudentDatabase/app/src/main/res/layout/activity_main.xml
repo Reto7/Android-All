@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,3 +17,94 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.ibw.reto.studentdatabase.MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/label_ueberschrift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bitte neuen Student eingeben:"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <TextView
+        android:id="@+id/label_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student"
+        android:layout_below="@+id/label_ueberschrift"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <EditText
+        android:id="@+id/edit_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_student"
+        android:inputType="numberDecimal"
+        android:layout_alignStart="@+id/label_ausgabe"
+        android:layout_alignEnd="@+id/label_ausgabe" />
+
+
+    <TextView
+        android:id="@+id/label_studienrichtung"
+        android:layout_below="@id/label_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Studienrichtung"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_studienrichtung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_studienrichtung"
+        android:spinnerMode="dropdown"
+        android:layout_alignStart="@+id/edit_student"
+        android:layout_alignEnd="@+id/edit_student" />
+    <!--
+    android:background="@android:drawable/btn_dropdown"
+    -->
+
+    <Button
+        android:id="@+id/button_compute"
+        android:text="Einfuegen"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_studienrichtung"
+        android:layout_alignStart="@+id/label_studienrichtung" />
+
+    <TextView
+        android:id="@+id/label_ausgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/button_compute"
+        android:layout_marginLeft="60px"
+        android:layout_marginRight="60px"
+        android:layout_toEndOf="@+id/button_compute"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>
