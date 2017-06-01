@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/label_student"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         android:layout_alignStart="@+id/label_ausgabe"
         android:layout_alignEnd="@+id/label_ausgabe" />
 
