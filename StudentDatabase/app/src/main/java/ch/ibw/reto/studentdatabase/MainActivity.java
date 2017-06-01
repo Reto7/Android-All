@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     //  private TextView textAusgabe;
     private ListView listViewToDoListe;
 
-    ArrayList<String> studentenListe;
+    ArrayList<Student> studentenListe;
 
     private DbAdapter dbAdapter;
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         studentenListe = dbAdapter.readAllStudents();
         //
         // der ListView das ListenObjekt generell zuteilen
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(MainActivity.this,
+        final ArrayAdapter<Student> adapter2 = new ArrayAdapter<Student>(MainActivity.this,
                 android.R.layout.simple_list_item_1, studentenListe);   //R.layout.reto_listitem  oder  android.R.layout.simple_list_item_1
         listViewToDoListe.setAdapter(adapter2);
     }

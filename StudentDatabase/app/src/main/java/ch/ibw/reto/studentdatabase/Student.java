@@ -14,6 +14,11 @@ public class Student {
         this.studienrichtung = studienrichtung;
     }
 
+    //speziell! wegen Ausgabe in Liste
+    public String toString() {
+        return this.name + " (" +studienrichtung +")";
+    }
+
     public String getName() {
         return name;
     }
