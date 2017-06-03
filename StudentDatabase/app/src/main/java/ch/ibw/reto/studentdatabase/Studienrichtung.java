@@ -18,5 +18,14 @@ public enum Studienrichtung {
         hm.put(Studienrichtung.Jura, 4);
         return hm.get(this);
     }
-    
+
+    // TODO doppelte logik, aber erstmal egal
+    public static Studienrichtung findStudienrichtungById(int studienrichtungId) {
+        if (studienrichtungId == 1)  return Studienrichtung.Applikationsentwicklung;
+        else if (studienrichtungId == 2)  return Studienrichtung.Architektur;
+        else if (studienrichtungId == 3)  return Studienrichtung.Friseurwesen;
+        else if (studienrichtungId == 4)  return Studienrichtung.Jura;
+        return null;
+    }
+
 }

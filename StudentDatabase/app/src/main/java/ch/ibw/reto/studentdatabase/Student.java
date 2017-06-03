@@ -13,6 +13,10 @@ public class Student {
         this.name = name;
         this.studienrichtung = studienrichtung;
     }
+    public Student(String name, int studienrichtung_id) {
+        this.name = name;
+        this.studienrichtung = Studienrichtung.findStudienrichtungById(studienrichtung_id);
+    }
 
     //speziell! wegen Ausgabe in Liste
     public String toString() {

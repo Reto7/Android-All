@@ -53,7 +53,7 @@ public class DbAdapter {
     }
     //
     public ArrayList<Student> readAllStudents() {
-        String[] columns = {"name","studienrichtung,id"};
+        String[] columns = {"name","studienrichtung_id"};
         String selection = " 1=1 ";
         Cursor resultCursor = db.query(tblName, columns, selection, null, null, null, null);
 
@@ -61,9 +61,15 @@ public class DbAdapter {
         resultCursor.moveToFirst();
         while (resultCursor.moveToNext()) {
             String studentName =   resultCursor.getString(0);
-            //String studienrichtungId = resultCursor.getString(1);
-            //Log.w(PROG, "reading: " + studentName +", hat Studienrichtung ID " + studienrichtungId);
-            returnArrayList.add(new Student(studentName,Studienrichtung.Applikationsentwicklung));  // TODO
+            String studienrichtungStringId = resultCursor.getString(1);
+            //
+            if (studienrichtungStringId == null) {
+                studienrichtungStringId = "1";
+            }
+            Log.w(PROG, "reading: " + studentName +", hat Studienrichtung ID " + studienrichtungStringId);
+            //returnArrayList.add(new Student(studentName,Studienrichtung.Applikationsentwicklung));
+            int studienrichtungId = Integer.parseInt(studienrichtungStringId);
+            returnArrayList.add(new Student(studentName,studienrichtungId));
             //returnArrayList.add(c.getString(c.getColumnIndex(dbAdapter.KEY_NAME))); //add the item
         }
         resultCursor.close();
