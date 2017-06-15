@@ -3,6 +3,8 @@ package test.reto.geolocation;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -14,6 +16,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
                     lastKnownLocation.getLongitude(),
                     lastKnownLocation.getLatitude()
             );
+            message = message + zeigeAdresse(lastKnownLocation);
             textViewShow.setText(message);
         }
-            //
+        //
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER, 0L, 0.0F,
                 new LocationListener() {
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                 location.getLongitude(),
                                 location.getLatitude()
                         );
+                        message = message + zeigeAdresse(location);
                         textViewShow.setText(message);
                     }
 
@@ -102,6 +110,19 @@ public class MainActivity extends AppCompatActivity {
     } //startCapturingLocation
 
 
+    private String zeigeAdresse(Location location){
+        List<Address> adressen = null;
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            adressen = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (Address adr :adressen) {
+            return adr.getAddressLine(0);
+        }
+        return "";
+    }
 
 
     @Override
