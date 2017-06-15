@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         //  Request-Permission !! User fragen
                         final Context context = getApplicationContext();
                         final int MY_PERMISSIONS_REQUEST_WRITE_CALENDAR = 1001;
+
+                        // TODO , siehe laufendes Beispiel in:  /home/rk/AndroidStudioProjects/GeoLocation/app/src/main/java/test/reto/geolocation/MainActivity.java
+
+
 //                        if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
 //                            if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.WRITE_CALENDAR)) {
 //                                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
