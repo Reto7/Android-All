@@ -57,6 +57,17 @@ public class MainActivity extends AppCompatActivity {
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Log.w(PROG, "locationmanager : " +locationManager);
+        //
+        Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (lastKnownLocation != null) {
+            String message = String.format(
+                    "Location captured:%nLON %s / LAT %s",
+                    lastKnownLocation.getLongitude(),
+                    lastKnownLocation.getLatitude()
+            );
+            textViewShow.setText(message);
+        }
+            //
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER, 0L, 0.0F,
                 new LocationListener() {
